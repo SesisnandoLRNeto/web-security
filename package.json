@@ -1,0 +1,20 @@
+{
+  "name": "server-external",
+  "version": "1.0.0",
+  "description": "A external server to test my course about security",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:server": "nodemon src/server.js",
+    "start:external": "nodemon src/external.js"
+  },
+  "keywords": [],
+  "author": "SesisnandoLRNeto",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "helmet-csp": "^4.0.0",
+    "nodemon": "^3.1.4"
+  }
+}
