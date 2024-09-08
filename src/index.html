@@ -11,11 +11,21 @@
   <h2>Hello World!</h2>
   <img src="http://127.0.0.1:8081/ninja.png" alt="ninja">
   <button id="callApi">Call API</button>
-  <button onclick="callExternalApi()">Call external API</button>
-  <script nonce="uasdimAsNXCzP5AG6Rvux">
+  <button id="callExternalApi">Call external API</button>
+  <button id="sendSecureCookie">Send Secure Cookie</button>
+<!--script 
+    integrity="sha256-vM3C9QY5hDRLJ6QVCFG8kJw6Im8OLHznLcH00GohNAU="
+    crossorigin="anonymous" -->
+  <script 
+        nonce="uasdimAsNXCzP5AG6Rvux"
+        integrity="sha256-vM3C9QY5hDRLJ6QVCFG8kJw6Im8OLHznLcH00GohNAU="
+        crossorigin="anonymous">
     document.addEventListener('DOMContentLoaded', () => {
       console.log('Installing event handler');
+      document.cookie = "userOwner=Sesisnando";
       document.getElementById('callApi').addEventListener('click', callApi);
+      document.getElementById('callExternalApi').addEventListener('click', callExternalApi);
+      document.getElementById('sendSecureCookie').addEventListener('click', sendSecureCookie);
     }); 
     function callApi() {
       fetch('http://127.0.0.1:8080/api')
@@ -26,6 +36,12 @@
       fetch('http://127.0.0.1:8081/api')
         .then((response) => response.json())
         .then(json => console.log(json));
+    }
+
+    function sendSecureCookie(){
+      fetch('http://127.0.0.1:8080/secure-cookies')
+      .then((response)=>response.json())
+      .then((json)=> console.log(json))
     }
   </script>
 </body>
